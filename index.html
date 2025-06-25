@@ -1,71 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Basic Calculator</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-  <!-- Theme Toggle Switch -->
-  <div class="theme-toggle">
-    <label>
-      <input type="checkbox" id="themeSwitch">
-      <span class="slider"></span>
-    </label>
-    <span id="modeLabel">Dark Theme</span>
-  </div>
+      body {
+        background-color: rgb(0, 0, 33);
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+      .buttons{
+        display: flex;
+        gap: 10px;
+      }
 
-<div class="history-wrapper">
-  <button class="history-toggle" id="historyToggle">History</button>
-  <div class="history-dropdown" id="historyContainer" style="display: none;">
-    <h3>History</h3>
-    <ul id="historyList"></ul>
-  </div>
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(18, 18, 71);
+        padding: 0 40px;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+      nav ul li a:hover {
+        color: rgb(142, 142, 242);
+      }
+      main hr{
+        border: 0;
+        background: #9c97f1;
+        height: 1.2px;
+        margin:40px 84px
+      }
+      .left {
+        font-size: 1.4 rem;
+        display: flex;
+  align-items: center;
+  gap: 10px;
+      }
+.brand-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 120px 0;
+      }
+
+      .firstSection > div {
+        width: 30%;
+      }
+
+      .leftSection {
+        font-size: 3rem;
+      }
+      
+      .leftSection .buttons{
+        padding: 50px 0;
+      }
+      .leftSection .btn{
+        padding: 12px;
+        background-color: #1e2167;
+        color: white;
+        border: 2px solid white;
+        border-radius: 6px;
+        font-size: 20px;
+        cursor:pointer;
+      }
+      .rightSection img {
+        width: 80%;
+      }
+      .purple {
+        color: rgb(183, 123, 239);
+      }
+      .text-gray{
+        color: gray;
+      }
+      #element {
+        color: rgb(183, 123, 239);
+      }
+      .secondSection{
+        max-width: 88vw;
+        margin: auto;
+        padding-bottom: 180px;
+      }
+  .secondSection h1{
+    font-size: 1.9 rem;
+  }
+ .secondSection .box{
+    background: white;
+    width: 86vw;
+    height: 2px;
+    margin: 56px 0;
+    display: flex;
+ }
+  .secondSection .vertical{
+    height: 93px;
+    width: 1px;
+    background-color: white;
+    margin: 0 122px;
+  }
+
+
+   .image-top{
+    width: 31px;
+    position: relative;
+    top: -33px;
+    left: -14px;
+   }
+    .image-top1{
+    width: 23px;
+    position: relative;
+    top: -36px;
+    left: -11px;
+   }
+   .image-top2{
+    width: 31px;
+    position: relative;
+    top: -22px;
+    left: -11px;
+   }
+ .vertical-title{
+  position: relative;
+  top: 60px;
+  width: 150px;
+  font-size: 15px;
+
+ }
+  .vertical-title2{
+  position: relative;
+  top: 73px;
+  width: 150px;
+  font-size: 15px;
+
+ }
+ .vertical-content {
+  position: relative;
+  top: 60px;
+  width: 180px;
+  /* text-align: left; */
+}
+
+.vertical-content ul {
+  color: gray;
+  font-size: 10px;
+  padding-left: 8px;
+  margin-top: 5px;
+}
+
+
+ .vertical-desc{
+  position: relative;
+  top: 72px;
+  color: gray;
+  width: 150px;
+  font-size: 9px;
+
+ }
+ footer{
+  background-color: #0e0e1a;
+  
+ }
+.footer{
+  display: flex;
+  padding: 23px 123px;
+  justify-content: space-evenly;
+}
+.footer ul{
+  list-style: none;
+}
+.footer > div{
+  width: 223px;
+}
+footer .footer-rights{
+  text-align: center;
+  color:#9c97f1;
+  padding: 12px 0;
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0px solid white;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+      <div class="left">
+  <img src="profile.jpg" alt="Profile" class="profile-pic" />
+    <span class="brand-text">Portfolio</span>
 </div>
 
-  <!-- Calculator UI -->
-  <div class="calculator">
-    <input type="text" id="display" disabled />
-    <div class="buttons">
-      <!-- Row 1 -->
-   <button class="btn operator" onclick="clearDisplay()">C</button>
-     <button class="btn operator" onclick="deleteChar()">⌫</button>
-    <button class="btn operator" onclick="calculateResult()">=</button>
-      <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+        <div class="right">
+          <ul>
+            <li><a href="/">Home</a></li>
+                   <li><a href="#projects">Projects</a></li>
+  <li><a href="#skills">Skills</a></li>
+         <li><a href="#about">About</a></li>
+      
+
    
 
-      <!-- Row 2 -->
-          <button class="btn digit" onclick="appendToDisplay('7')">7</button>
-      <button class="btn digit" onclick="appendToDisplay('8')">8</button>
-      <button class="btn digit" onclick="appendToDisplay('9')">9</button>
-      <button class="btn operator" onclick="appendToDisplay('/')">/</button>
-     
+          
+<li><a href="#about">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          HI, <span class="purple">Ayushi </span>here!!
+          <div>and I am a</div>
+           <span id="element"></span>
+           <div class="buttons">
+            <a href="resume.png" download target="_blank">
+    <button class="btn">Download Resume</button>
+  </a>
+    <a href="https://github.com/yourusername" target="_blank">
+    <button class="btn">Visit GitHub</button>
+  </a>
+           
+           </div>
+        </div>
+        <div class="rightSection">
+          <img src="bg.png" alt="" />
+        </div>
+      </section>
+      <hr>
+      <section class ="secondSection" id="skills">
+        <span class="text-gray">What have I Done </span>
+        <h1>
+            Technical Skills
+        </h1>
+<div class="box">
+    <div class="vertical">
+      <img class="image-top" src="developer.png" alt="">
+    
+      <div class="vertical-title">
+        HTML 
+      </div>
+        <div class="vertical-content">
+    <ul>
+    <li>Personal Portfolio</li>
+    <li>Netflix Clone</li>
+    <li>Form Designs</li>
+  </ul>
+    </div>
+    </div>
+      <div class="vertical">
+      <img class="image-top1" src="css.png" alt="">
+      <div class="vertical-title">
+        CSS
+      </div>
+          <div class="vertical-content">
+      <ul>
+        <li>Responsive Layouts</li>
+        <li>Animations & Transitions</li>
+        <li>Design Enhancements</li>
+      </ul>
+    </div>
 
-      <!-- Row 3 -->
-        <button class="btn digit" onclick="appendToDisplay('4')">4</button>
-      <button class="btn digit" onclick="appendToDisplay('5')">5</button>
-      <button class="btn digit" onclick="appendToDisplay('6')">6</button>
-      <button class="btn operator" onclick="appendToDisplay('*')">*</button>
-     
+    </div>
+      <div class="vertical">
+      <img class="image-top2" src="tail.png" alt="">
+      <div class="vertical-title2">
+        TAILWIND CSS
+      </div>
+ 
+    <div class="vertical-content">
+      <ul style="margin-top: 19px;">
+        <li>Utility-First Styling</li>
+        <li>Modern UIs</li>
+        <li>Mobile-Responsive Layouts</li>
+      </ul>
+    </div>
+    </div>
+      <div class="vertical">
+      <img class="image-top" src="js.png" alt="">
+      <div class="vertical-title">
+        JAVASCRIPT
+      </div>
+       <div class="vertical-content">
+      <ul>
+        <li>Javascript Projects (e.g. Chatbot)</li>
+        <li>Form Validation</li>
+        <li>Mini Projects (e.g., Calculator)</li>
+      </ul>
+    </div>
 
-      <!-- Row 4 -->
-        <button class="btn digit" onclick="appendToDisplay('1')">1</button>
-      <button class="btn digit" onclick="appendToDisplay('2')">2</button>
-      <button class="btn digit" onclick="appendToDisplay('3')">3</button>
-      <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+    </div>
+      <div class="vertical">
+      <img class="image-top" src="react.png" alt="">
+      <div class="vertical-title">
+        React JS
+      </div>
+     <div class="vertical-content">
+      <ul>
+        <li>Component-Based Design</li>
+        <li>Props & State Management</li>
+        <li>React Projects</li>
+      </ul>
+    </div>
+
+    </div>
    
+</div>
+      </section>
+      <hr>
+      <!-- Projects Section -->
+<!-- Projects Section -->
+<section id="projects" style="max-width: 88vw; margin: auto; padding: 20px 0;">
+  <span class="text-gray">What I've Built</span>
+  <h1 style="font-size: 1.9rem;">My Projects</h1>
+  <div style="text-align: center; margin-top: 40px;">
+    <img src="chat.png" alt="Chatbot Project" style="width: 80%; border-radius: 10px;" />
+  </div>
+</section>
 
 
-      <!-- other Buttons -->
-       <button class="btn digit" onclick="appendToDisplay('0')">0</button>
-      <button class="btn digit" onclick="appendToDisplay('.')">.</button>
+    </main>
+  <footer>
+  <div class="footer">
+    <!-- About Me Section -->
+    <div class="first" id="about">
+      <h3>   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="#9c97f1" viewBox="0 0 24 24" style="margin-right: 8px;">
+      <path d="M12 12c2.7 0 5.5-1.3 5.5-4S14.7 4 12 4s-5.5 1.3-5.5 4 2.8 4 5.5 4zm0 2c-3.3 0-10 1.7-10 5v1h20v-1c0-3.3-6.7-5-10-5z"/>
+    </svg>About Me</h3>
+      <p style="font-size: 13px; color: gray;">
+    I'm Ayushi, a passionate tech enthusiast with experience in:
+  </p>
+  <ul style="font-size: 13px; color: gray; margin-top: 8px; padding-left: 18px;">
+    <li><strong>Web Development</strong>: I build dynamic and responsive websites using HTML, CSS, JavaScript, and React.</li>
+    <li><strong>Web Design</strong>: I design clean, user-friendly interfaces with attention to layout, colors, and usability.</li>
+    <li><strong>Graphic Design</strong>: I create visually appealing graphics for web and branding using design tools.</li>
+  </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="second">
+      <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="#9c97f1" viewBox="0 0 24 24" style="margin-right: 8px;">
+      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1.4 14.6l-5-2.2 2.2-5 5 2.2-2.2 5z"/>
+    </svg>
+        Core Skills</h3>
+  <ul style="list-style: none; padding-left: 0; font-size: 13px; color: gray;">
+     <li>Data Structures & Algorithms (DSA)</li>
+    <li>C++ Programming</li>
+    <li>C Language</li>
+   
+    <li>Problem Solving</li>
+  </ul>
+    
+    </div>
+
+    <!-- Contact Info -->
+    <div class="third" id="contact">
+      <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="#9c97f1" viewBox="0 0 24 24" style="margin-right: 8px;">
+      <path d="M12 12.713l11.985-6.713-11.985-6.713-11.985 6.713 11.985 6.713zm0 2.574l-12-6.714v10.143l12 6.714 12-6.714v-10.143l-12 6.714z"/>
+    </svg>Contact</h3>
+      <ul style="list-style: none; padding-left: 0; font-size: 13px; color: gray;">
+           <li><strong>Email:</strong> ayushi@email.com</li>
+    <li><strong>Phone:</strong> +91-8306637902</li>
+    <li><strong>Location:</strong>Rajasthan | Jaipur</li>
+           <li><strong>Available for:</strong> Freelance & Internships</li>
+               <li><strong>Languages:</strong> English, Hindi</li>
+      </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="fourth">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="#9c97f1" viewBox="0 0 24 24" style="margin-right: 8px;">
+      <path d="M18 2h-12c-1.1 0-2 .9-2 2v16l4-4h10c1.1 0 2-.9 2-2v-10c0-1.1-.9-2-2-2z"/>
+    </svg>Follow Me</h3>
+      <ul style="list-style: none; padding-left: 0; font-size: 13px;">
+        <li><a href="https://github.com/yourusername" target="_blank" style="color: gray; text-decoration: none;">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/yourprofile" target="_blank" style="color: gray; text-decoration: none;">LinkedIn</a></li>
+        <li><a href="https://twitter.com/yourhandle" target="_blank" style="color: gray; text-decoration: none;">Twitter</a></li>
+      </ul>
     </div>
   </div>
 
-  
+  <div class="footer-rights">
+    Copyright &#169; ayushi's portfolio.com | All rights reserved.
+  </div>
+</footer>
 
-  <script src="script.js"></script>
-</body>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: [
+           "Web Designer",
+           "Graphic Designer",
+          "Web Developer",
+         
+         
+  
+        ],
+        typeSpeed: 50,
+      });
+    </script>
+  </body>
 </html>
