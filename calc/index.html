@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Theme Toggle Switch -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="themeSwitch">
+      <span class="slider"></span>
+    </label>
+    <span id="modeLabel">Dark Theme</span>
+  </div>
+
+<div class="history-wrapper">
+  <button class="history-toggle" id="historyToggle">History</button>
+  <div class="history-dropdown" id="historyContainer" style="display: none;">
+    <h3>History</h3>
+    <ul id="historyList"></ul>
+  </div>
+</div>
+
+  <!-- Calculator UI -->
+  <div class="calculator">
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <!-- Row 1 -->
+   <button class="btn operator" onclick="clearDisplay()">C</button>
+     <button class="btn operator" onclick="deleteChar()">⌫</button>
+    <button class="btn operator" onclick="calculateResult()">=</button>
+      <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+   
+
+      <!-- Row 2 -->
+          <button class="btn digit" onclick="appendToDisplay('7')">7</button>
+      <button class="btn digit" onclick="appendToDisplay('8')">8</button>
+      <button class="btn digit" onclick="appendToDisplay('9')">9</button>
+      <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+     
+
+      <!-- Row 3 -->
+        <button class="btn digit" onclick="appendToDisplay('4')">4</button>
+      <button class="btn digit" onclick="appendToDisplay('5')">5</button>
+      <button class="btn digit" onclick="appendToDisplay('6')">6</button>
+      <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+     
+
+      <!-- Row 4 -->
+        <button class="btn digit" onclick="appendToDisplay('1')">1</button>
+      <button class="btn digit" onclick="appendToDisplay('2')">2</button>
+      <button class="btn digit" onclick="appendToDisplay('3')">3</button>
+      <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+   
+
+
+      <!-- other Buttons -->
+       <button class="btn digit" onclick="appendToDisplay('0')">0</button>
+      <button class="btn digit" onclick="appendToDisplay('.')">.</button>
+    </div>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
